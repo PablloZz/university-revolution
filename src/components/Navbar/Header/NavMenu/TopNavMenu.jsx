@@ -11,7 +11,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons"
 function TopNavMenu() {
   return (
     <NavTop>
-      <NavListTop>
+      <NavListTopLeft>
         <li>
           <a href="/">Blog</a>
         </li>
@@ -27,7 +27,7 @@ function TopNavMenu() {
         <li>
           <a href="/">BuddyPress</a>
         </li>
-      </NavListTop>
+      </NavListTopLeft>
       <SocialMedia>
         <li>
           <a href="/">
@@ -59,6 +59,7 @@ export default TopNavMenu
 const NavTop = styled.nav`
   height: 40px;
   display: flex;
+  align-items: center;
 
   &::before {
     content: "";
@@ -72,8 +73,10 @@ const NavTop = styled.nav`
   }
 `
 
-const NavListTop = styled.ul`
-  flex: 1;
+const NavListTopLeft = styled.ul`
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
 
   & li {
     border-right: solid 1px rgba(255, 255, 255, 0.15);
@@ -89,33 +92,19 @@ const NavListTop = styled.ul`
     color: rgba(255, 255, 255, 0.75);
     background: transparent;
     padding: 11px 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-size: 13px;
-  }
-`
-
-const SocialMedia = styled.ul`
-  & li {
-    border-right: solid 1px rgba(255, 255, 255, 0.15);
-    display: inline-block;
-    height: 40px;
-  }
-
-  & li:first-child {
-    border-left: solid 1px rgba(255, 255, 255, 0.15);
-  }
-
-  & li a {
-    color: rgba(255, 255, 255, 0.75);
-    background: transparent;
-    padding: 0 15px;
     height: 40px;
     cursor: pointer;
     display: flex;
     align-items: center;
     line-height: 100%;
     font-size: 13px;
+  }
+`
+
+const SocialMedia = styled(NavListTopLeft)`
+  flex-grow: 0;  
+
+  & li a {
+    padding: 0 15px;
   }
 `
