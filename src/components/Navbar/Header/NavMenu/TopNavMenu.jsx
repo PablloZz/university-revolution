@@ -13,39 +13,80 @@ function TopNavMenu() {
     <NavTop>
       <NavListTopLeft>
         <li>
-          <a href="/">Blog</a>
+          <a href='/'>Blog</a>
+          <DropdownList>
+            <li>
+              <a href='/'>Blog Listing</a>
+            </li>
+            <li>
+              <a href='/'>Standart Post</a>
+            </li>
+            <li>
+              <a href='/'>Gallery Post</a>
+            </li>
+            <li>
+              <a href='/'>Video Post</a>
+            </li>
+            <li>
+              <a href='/'>Audio Post</a>
+            </li>
+          </DropdownList>
         </li>
         <li>
-          <a href="/">Portfolio</a>
+          <a href='/'>Portfolio</a>
+          <DropdownList>
+            <li>
+              <a href='/'>Project List</a>
+            </li>
+            <li>
+              <a href='/'>Project Category</a>
+            </li>
+          </DropdownList>
         </li>
         <li>
-          <a href="/">Shop</a>
+          <a href='/'>Shop</a>
+          <DropdownList>
+            <li>
+              <a href='/'>Shop List</a>
+            </li>
+            <li>
+              <a href='/'>Single Product</a>
+            </li>
+          </DropdownList>
         </li>
         <li>
-          <a href="/">bbPress</a>
+          <a href='/'>bbPress</a>
         </li>
         <li>
-          <a href="/">BuddyPress</a>
+          <a href='/'>BuddyPress</a>
+          <DropdownList>
+            <li>
+              <a href='/'>Members</a>
+            </li>
+            <li>
+              <a href='/'>Site-Wide Activity</a>
+            </li>
+          </DropdownList>
         </li>
       </NavListTopLeft>
       <SocialMedia>
         <li>
-          <a href="/">
+          <a href='/'>
             <FontAwesomeIcon icon={faFacebookF} />
           </a>
         </li>
         <li>
-          <a href="/">
+          <a href='/'>
             <FontAwesomeIcon icon={faYoutube} />
           </a>
         </li>
         <li>
-          <a href="/">
+          <a href='/'>
             <FontAwesomeIcon icon={faTwitter} />
           </a>
         </li>
         <li>
-          <a href="/">
+          <a href='/'>
             <FontAwesomeIcon icon={faSearch} />
           </a>
         </li>
@@ -82,6 +123,7 @@ const NavListTopLeft = styled.ul`
     border-right: solid 1px rgba(255, 255, 255, 0.15);
     display: inline-block;
     height: 40px;
+    position: relative;
   }
 
   & li:first-child {
@@ -98,6 +140,18 @@ const NavListTopLeft = styled.ul`
     align-items: center;
     line-height: 100%;
     font-size: 13px;
+    transition: color 0.25s ease;
+  }
+
+  & li :is(a:hover, a:focus) {
+    color: var(--txt-white);
+  }
+
+  & :is(li:hover a ~ ul, li:focus a ~ ul) {
+    opacity: 1;
+    transform: scaleY(1);
+    top: 40px;
+    z-index: 10;
   }
 `
 
@@ -106,5 +160,33 @@ const SocialMedia = styled(NavListTopLeft)`
 
   & li a {
     padding: 0 15px;
+  }
+`
+
+const DropdownList = styled.ul`
+  display: flex;
+  flex-flow: column nowrap;
+  position: absolute;
+  left: 0;
+  top: 40px;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: all 250ms ease;
+  background: rgba(0, 0, 0, 0.9);
+
+  & li:is(li, :first-child) {
+    border: none;
+    min-width: 200px;
+  }
+
+  & li a {
+    display: block;
+    padding: 11px 20px;
+    transition: background-color 250ms ease;
+  }
+
+  & li a:hover {
+    background-color: var(--bg-blue);
   }
 `
