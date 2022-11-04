@@ -131,7 +131,7 @@ const NavListTopLeft = styled.ul`
   }
 
   & li a {
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--txt-gray);
     background: transparent;
     padding: 11px 20px;
     height: 40px;
@@ -140,7 +140,7 @@ const NavListTopLeft = styled.ul`
     align-items: center;
     line-height: 100%;
     font-size: 13px;
-    transition: color 0.25s ease;
+    transition: all 0.25s ease;
   }
 
   & li :is(a:hover, a:focus) {
@@ -174,10 +174,10 @@ const DropdownList = styled.ul`
   transform-origin: top center;
   transition: all 250ms ease;
   background: rgba(0, 0, 0, 0.9);
+  min-width: 200px;
 
   & li:is(li, :first-child) {
     border: none;
-    min-width: 200px;
   }
 
   & li a {

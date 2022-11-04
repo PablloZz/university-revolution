@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import TopNavMenu from "./NavMenu/TopNavMenu"
-import BottomNavMenu from "./NavMenu/BottomNavMenu"
+import BottomNavMenu from "./NavMenu/BottomNavMenu/BottomNavMenu"
 
 function Header() {
   return (

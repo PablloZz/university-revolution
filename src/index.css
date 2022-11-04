@@ -3,6 +3,9 @@
   --bg-blue: #179bd7;
   --bg-black: #231f20;
   --txt-white: #fff;
+  --txt-gray: rgba(255, 255, 255, 0.75);
+  --txt-darkgray: #b0b0b0;
+  --txt-blue: #179bd7;
 }
 
 /* || RESET */
